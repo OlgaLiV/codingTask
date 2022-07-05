@@ -1,6 +1,7 @@
 package utils;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CommonMethods extends PageInitializer {
-    private static Logger LOG = Logger.getLogger(CommonMethods.class);
+    private static final Logger LOG = LogManager.getLogger(CommonMethods.class);
 
     /**
      * Method return object of Java Script Executor type
@@ -71,7 +72,7 @@ public class CommonMethods extends PageInitializer {
      * @param element
      */
     public static void click(WebElement element) {
-        LOG.info("Waiting if clickable");
+        LOG.debug("Waiting if " + element + "clickable");
         waitForClickability(element);
         LOG.debug("Element is clickable");
         element.click();
